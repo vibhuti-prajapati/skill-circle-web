@@ -6,8 +6,19 @@ import {
   FaCog,
   FaChartPie,
   FaUserCircle,
-  FaLayerGroup
+  FaLayerGroup,
+  FaChartLine,
+  FaTruck,
+  FaBox,
+  FaPodcast,
+  FaBlog,
+  FaNewspaper,
+  FaGithub,
+  FaFacebook,
+  FaYoutube,
+  FaUser
 } from 'react-icons/fa'
+import { FaChartSimple, FaHouse } from 'react-icons/fa6'
 const Sidebar = () => {
   return (
     <div className='flex h-screen sticky top-0'>
@@ -20,63 +31,59 @@ const Sidebar = () => {
           <div className='divider my-0'></div>
 
           <a className='btn btn-square btn-ghost text-xl' title='Home'>
-            <i className=' fa-house'></i>
+            <FaHouse />
           </a>
 
           <a className='btn btn-square btn-secondary text-xl' title='Data'>
-            <i className=' fa-chart-simple'></i>
+            <FaChartSimple />
           </a>
 
           <a className='btn btn-square btn-ghost text-xl' title='Evolution'>
-            <i className=' fa-chart-line'></i>
+            <FaChartLine />
           </a>
 
           <div className='divider my-0'></div>
 
           <a className='btn btn-square btn-ghost text-xl' title='Deliver'>
-            <i className=' fa-truck'></i>
+            <FaTruck />
           </a>
 
           <a className='btn btn-square btn-ghost text-xl' title='Products'>
-            <i className=' fa-box'></i>
+            <FaBox />
           </a>
 
           <div className='divider my-0'></div>
 
           <a className='btn btn-square btn-ghost text-xl' title='Podcast'>
-            <i className=' fa-podcast'></i>
+            <FaPodcast />
           </a>
 
           <a className='btn btn-square btn-ghost text-xl' title='Blog'>
-            <i className=' fa-blog'></i>
+            <FaBlog />
           </a>
 
           <a className='btn btn-square btn-ghost text-xl' title='News'>
-            <i className=' fa-newspaper'></i>
+            <FaNewspaper />
           </a>
 
           <div className='divider my-0'></div>
 
           <a className='btn btn-square btn-ghost text-xl' title='GitHub'>
-            <i className='fa-brands fa-github'></i>
+            <FaGithub />
           </a>
 
           <a className='btn btn-square btn-ghost text-xl' title='Facebook'>
-            <i className='fa-brands fa-facebook'></i>
+            <FaFacebook />
           </a>
 
           <a className='btn btn-square btn-ghost text-xl' title='Youtube'>
-            <i className='fa-brands fa-youtube'></i>
+            <FaYoutube />
           </a>
 
           <div className='divider my-0'></div>
 
           <a className='btn btn-circle btn-ghost text-xl' title='Profile'>
-            <img
-              alt='Profile'
-              src='/daisy-components/avatar.png'
-              className='w-8 rounded-full'
-            />
+            <FaUserCircle />
           </a>
         </aside>
       </div>
@@ -86,11 +93,7 @@ const Sidebar = () => {
         <ul className='menu px-0'>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -100,11 +103,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -114,11 +113,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -128,11 +123,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -142,11 +133,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -156,11 +143,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -170,11 +153,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -184,11 +163,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -198,11 +173,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -212,11 +183,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -226,11 +193,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
@@ -240,11 +203,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a>
-              <img
-                alt='User'
-                src='/daisy-components/avatar.png'
-                className='rounded-full w-8'
-              />
+              <FaUser />
 
               <div className='flex flex-col'>
                 <span className='font-bold'>User name</span>
