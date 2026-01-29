@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <div className='flex h-screen sticky top-0'>
       <div className='flex overflow-hidden relative'>
-        <aside className='h-screen sticky top-0 flex flex-col overflow-y-auto gap-2 py-6 px-2 bg-base-200'>
+        <aside className='h-screen sticky top-0 flex flex-col overflow-y-auto no-scrollbar gap-2 py-6 px-2 bg-base-200'>
           <a className='btn btn-square btn-ghost'>
             <img alt='Logo' src='/daisy-components/logo.svg' className='w-5' />
           </a>
@@ -80,7 +80,7 @@ const Sidebar = () => {
           </a>
         </aside>
       </div>
-      <aside className='bg-base-200 py-6 px-4 w-60 overflow-y-auto space-y-4'>
+      <aside className='bg-base-200 py-6 px-4 w-60 overflow-y-auto no-scrollbar space-y-4'>
         <h1 className='font-bold text-xl'>Accounts</h1>
 
         <ul className='menu px-0'>
