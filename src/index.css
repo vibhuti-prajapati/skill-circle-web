@@ -31,3 +31,13 @@
 .animate-float-slow {
   animation: float-slow 9s ease-in-out infinite;
 }
+
+@font-face {
+  font-family: "brigends";
+  src: url("./assets/RacingSportDisplay-Regular.otf") format("truetype");
+  font-style: normal;
+}
+
+@theme{
+   --font-brigends:"brigends", "sans-serif"
+}

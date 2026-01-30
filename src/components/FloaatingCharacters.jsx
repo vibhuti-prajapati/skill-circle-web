@@ -24,8 +24,8 @@ const FloatingCharacters = () => {
         alt="hourglass"
         className="absolute w-32 opacity-90 animate-float"
         style={{
-          top: '20%',
-          left: '15%',
+          top: '40%',
+          left: '55%',
           transform: `translateY(${offset}px)`
         }}
       />
