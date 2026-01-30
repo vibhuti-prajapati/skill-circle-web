@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Login () {
+const Register = () => {
   return (
     <div className='h-[calc(100vh-4rem)] grid place-items-center overflow-hidden'>
       <div className='grid place-items-center'>
         <form className='fieldset bg-[#393a41]  rounded-box w-80  p-4'>
           <h1 className='text-xl font-bold text-neutral-50 text-center mb-1'>
-            Welcome back!
+            Create an account
           </h1>
 
           <fieldset className='fieldset'>
@@ -17,7 +17,14 @@ export default function Login () {
               required
             />
           </fieldset>
-
+          <label className='fieldset text-neutral-50'>
+            <span className='label'>Username</span>
+            <input
+              type='text'
+              className='input validator bg-[#35353c] text-neutral-50 w-70 h-8'
+              required
+            />
+          </label>
           <label className='fieldset text-neutral-50'>
             <span className='label'>Password</span>
             <input
@@ -26,28 +33,22 @@ export default function Login () {
               required
             />
           </label>
-          <div className='text-left mt-1'>
-            <a
-              href='/forgot-password'
-              className='text-xs text-[#808afa] hover:underline'
-            >
-              Forgot your password?
-            </a>
-          </div>
           <button
             className='btn btn-neutral border-[#5764f0] rounded-xl mt-4 bg-[#5764f0] text-neutral-50'
             type='submit'
           >
-            Log in
+            Create Account
           </button>
           <p className='text-xs text-neutral-400 text-center mt-4'>
-          Need an account?{' '}
-          <a href='/register' className='text-[#808afa] hover:underline'>
-            Register
-          </a>
-        </p>
+            Already have  an account?{' '}
+            <a href='/login' className='text-[#808afa] hover:underline'>
+              Login
+            </a>
+          </p>
         </form>
       </div>
     </div>
   )
 }
+
+export default Register

@@ -5,12 +5,16 @@ import PublicLayout from "../Layout/PublicLayout";
 import Login from "../Pages/public/Login";
 import Home from "../Pages/public/Home";
 import Channels from "../Pages/app/Channels";
+import Register from "../Pages/public/Register";
+import ForgotPassword from "../Pages/public/ForgotPassword";
 
 const AppRoutes = () => (
   <Routes>
     <Route element={<PublicLayout />}>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register/>} />
+      <Route path='/forgot-password' element={<ForgotPassword/>} />
       </Route>
 
     <Route element={<AppLayout />}>
