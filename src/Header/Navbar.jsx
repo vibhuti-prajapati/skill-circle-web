@@ -1,6 +1,5 @@
 import React from 'react'
-// <div className='min-h-screen relative overflow-hidden radial-gradient(circle at 20% 30%, rgba(168,85,247,.25),transparent 40%), radial-gradient(circle at 80% 70%, rgba(59,130,246,.25(, transparent 45%), linear-gradient(135deg,#1e003e, 1e1b6b, #2563eb) text-base-content'>
-    //   <div className='pointer-events-none absolute inset-0 opacity-20 bg-[radial-gradient(white_1px,transparent_1px)] bg-size[40px_40px]' />
+
 const Navbar = () => {
   return (
         <div className='navbar bg-base-200 shadow-sm'>
