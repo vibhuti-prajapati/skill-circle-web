@@ -2,16 +2,16 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-        <div className='navbar bg-base-200 shadow-sm'>
+        <div className='navbar bg-base-200 shadow-sm h-6 min-h-0'>
           <div className='navbar-start'></div>
           <div className='navbar-center'>
-            <a className='btn btn-ghost text-xl'>SKILL CIRCLE</a>
+            <a className='btn btn-ghost text-xl'></a>
           </div>
           <div className='navbar-end'>
-            <button className='btn btn-ghost btn-circle'>
+            <button className='btn btn-ghost btn-xs btn-circle'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5'
+                className='h-4 w-4'
                 fill='none'
                 viewBox='0 0 24 24'
                 stroke='currentColor'
@@ -25,11 +25,11 @@ const Navbar = () => {
                 />{' '}
               </svg>
             </button>
-            <button className='btn btn-ghost btn-circle'>
+            <button className='btn btn-ghost btn-xs btn-circle'>
               <div className='indicator'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                  className='h-5 w-5'
+                  className='h-4 w-4'
                   fill='none'
                   viewBox='0 0 24 24'
                   stroke='currentColor'
@@ -52,7 +52,7 @@ const Navbar = () => {
                 role='button'
                 className='btn btn-ghost btn-circle avatar'
               >
-                <div className='w-10 rounded-full'>
+                <div className='w-5 h-5 rounded-full'>
                   <img
                     alt='Tailwind CSS Navbar component'
                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
