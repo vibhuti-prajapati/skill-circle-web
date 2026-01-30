@@ -11,7 +11,7 @@ const AppRoutes = () => (
     <Route element={<PublicLayout />}>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-    </Route>
+      </Route>
 
     <Route element={<AppLayout />}>
       <Route path="/channels/@me" element={<Channels />} />
