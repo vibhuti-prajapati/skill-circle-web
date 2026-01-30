@@ -2,7 +2,7 @@ import React from 'react'
 
 const PublicNavbar = () => {
   return (
-    <div className='navbar bg-transparent absolute top-0 left-0 w-full z-50'>
+    <div className='navbar bg-transparent sticky  top-0 left-0 w-full z-50'>
       <div className='navbar-start'>
         <a
           className='btn btn-ghost text-neutral-50 font-brigends text-2xl'

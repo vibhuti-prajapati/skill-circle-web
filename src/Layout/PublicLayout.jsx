@@ -25,7 +25,6 @@ const PublicLayout = () => {
           backgroundSize: '40px 40px'
         }}
       />
-      <FloatingCharacters />
       <PublicNavbar />
 
       <div className='relative z-10'>
