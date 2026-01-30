@@ -1,6 +1,22 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 export default function Login () {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const handleLogin = async (e) => {
+  e.preventDefault();
+    try {
+      const res = await axios.post('http://localhost:3001/login', {
+        email: email,
+        password: password
+      },{withCredentials:true});
+      console.log(res.data.message)
+      console.log(res.data.data)
+    } catch (err) {
+      console.log('ERROR : ' + err)
+    }
+  }
   return (
     <div className='h-[calc(100vh-4rem)] grid place-items-center overflow-hidden'>
       <div className='grid place-items-center'>
@@ -13,7 +29,9 @@ export default function Login () {
             <label className='label text-neutral-50'>Email</label>
             <input
               type='email'
+              value={email}
               className='input validator bg-[#35353c] text-neutral-50 w-70 h-8'
+              onChange={e => setEmail(e.target.value)}
               required
             />
           </fieldset>
@@ -22,7 +40,9 @@ export default function Login () {
             <span className='label'>Password</span>
             <input
               type='password'
+              value={password}
               className='input validator bg-[#35353c] text-neutral-50 w-70 h-8'
+              onChange={e => setPassword(e.target.value)}
               required
             />
           </label>
@@ -37,15 +57,16 @@ export default function Login () {
           <button
             className='btn btn-neutral border-[#5764f0] rounded-xl mt-4 bg-[#5764f0] text-neutral-50'
             type='submit'
+            onClick={handleLogin}
           >
             Log in
           </button>
           <p className='text-xs text-neutral-400 text-center mt-4'>
-          Need an account?{' '}
-          <a href='/register' className='text-[#808afa] hover:underline'>
-            Register
-          </a>
-        </p>
+            Need an account?{' '}
+            <a href='/register' className='text-[#808afa] hover:underline'>
+              Register
+            </a>
+          </p>
         </form>
       </div>
     </div>
