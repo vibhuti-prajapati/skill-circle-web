@@ -4,7 +4,7 @@ import Sidebar from "../Header/Sidebar";
 
 const AppLayout = () => {
   return (
-    <div className="h-screen flex flex-col">
+    <div data-theme="dark" className="h-screen flex flex-col">
 
       {/* TOP — always visible */}
       <Navbar />
