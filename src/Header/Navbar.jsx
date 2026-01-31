@@ -5,9 +5,6 @@ const Navbar = () => {
     <div className='navbar bg-base-200 shadow-sm h-6 min-h-0'>
       <div className='navbar-start'></div>
       <div className='navbar-center'>
-        <button className='btn tooltip-bottom' data-tip='Hello world'>
-          Hover me
-        </button>
       </div>
       <div className='navbar-end'>
         <button className='btn btn-ghost btn-xs btn-circle'>

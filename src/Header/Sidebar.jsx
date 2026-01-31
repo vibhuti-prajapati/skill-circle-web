@@ -1,5 +1,6 @@
 import React from 'react'
 import logoIcon from '../assets/duckicon.png'
+import { IconTooltip } from '../components/IconTooltip'
 import {
   FaHome,
   FaUsers,
@@ -27,53 +28,60 @@ const Sidebar = () => {
         <aside className='h-full sticky top-0 flex flex-col bg-base-200 w-14'>
           {/* TOP — fixed */}
           <div className=' px-2 '>
-            <a className='btn btn-square btn-ghost hover:bg-[#5764f0]'>
-              <img alt='Logo' src={logoIcon} className='w-5' />
-            </a>
+            <IconTooltip label='connections'>
+              <a className='btn btn-square btn-ghost hover:bg-[#5764f0]'>
+                <img alt='Logo' src={logoIcon} className='w-5' />
+              </a>
+            </IconTooltip>
           </div>
 
           <div className='divider my-0'></div>
 
           {/* MIDDLE — scrollable */}
           <div className='flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 px-2 py-2 '>
-            <a
-              className='btn btn-square btn-ghost text-xl '
-            >
-              <FaHouse />
-            </a>
-
-            <a className='btn btn-square btn-secondary text-xl' title='Data'>
-              <FaChartSimple />
-            </a>
-
-            <a className='btn btn-square btn-ghost text-xl' title='Evolution'>
-              <FaChartLine />
-            </a>
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-ghost text-xl'>
+                <FaHouse />
+              </a>
+            </IconTooltip>
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-secondary text-xl' title='Data'>
+                <FaChartSimple />
+              </a>
+            </IconTooltip>
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-ghost text-xl' title='Evolution'>
+                <FaChartLine />
+              </a>
+            </IconTooltip>
+            <div className='divider my-0'></div>
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-ghost text-xl' title='Deliver'>
+                <FaTruck />
+              </a>
+            </IconTooltip>
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-ghost text-xl' title='Products'>
+                <FaBox />
+              </a>
+            </IconTooltip>
 
             <div className='divider my-0'></div>
-
-            <a className='btn btn-square btn-ghost text-xl' title='Deliver'>
-              <FaTruck />
-            </a>
-
-            <a className='btn btn-square btn-ghost text-xl' title='Products'>
-              <FaBox />
-            </a>
-
-            <div className='divider my-0'></div>
-
-            <a className='btn btn-square btn-ghost text-xl' title='Podcast'>
-              <FaPodcast />
-            </a>
-
-            <a className='btn btn-square btn-ghost text-xl' title='Blog'>
-              <FaBlog />
-            </a>
-
-            <a className='btn btn-square btn-ghost text-xl' title='News'>
-              <FaNewspaper />
-            </a>
-
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-ghost text-xl' title='Podcast'>
+                <FaPodcast />
+              </a>
+            </IconTooltip>
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-ghost text-xl' title='Blog'>
+                <FaBlog />
+              </a>
+            </IconTooltip>
+            <IconTooltip label='Home'>
+              <a className='btn btn-square btn-ghost text-xl' title='News'>
+                <FaNewspaper />
+              </a>
+            </IconTooltip>
             <div className='divider my-0'></div>
 
             <a className='btn btn-square btn-ghost text-xl' title='GitHub'>
@@ -93,9 +101,11 @@ const Sidebar = () => {
 
           {/* BOTTOM — fixed */}
           <div className=' px-2'>
+            <IconTooltip label='Profile'>
             <a className='btn btn-circle btn-ghost text-xl' title='Profile'>
               <FaUserCircle />
             </a>
+            </IconTooltip>
           </div>
         </aside>
       </div>
