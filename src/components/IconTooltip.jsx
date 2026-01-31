@@ -10,10 +10,10 @@ export function IconTooltip({ label, children }) {
         <Tooltip.Portal>
           <Tooltip.Content
             side="right"
-            className="z-50 rounded-md bg-neutral px-2 py-1 text-sm text-neutral-content shadow"
+            className="z-50  bg-neutral-800 px-2 py-2 rounded-xl border border-gray-700 text-sm font-bold text-neutral-content shadow"
           >
             {label}
-            <Tooltip.Arrow className="fill-neutral" />
+            <Tooltip.Arrow className=" bg-neutral-800" />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>

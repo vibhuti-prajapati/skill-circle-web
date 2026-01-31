@@ -29,7 +29,7 @@ const Sidebar = () => {
           {/* TOP — fixed */}
           <div className=' px-2 '>
             <IconTooltip label='connections'>
-              <a className='btn btn-square btn-ghost hover:bg-[#5764f0]'>
+              <a className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'>
                 <img alt='Logo' src={logoIcon} className='w-5' />
               </a>
             </IconTooltip>
@@ -45,7 +45,7 @@ const Sidebar = () => {
               </a>
             </IconTooltip>
             <IconTooltip label='Home'>
-              <a className='btn btn-square btn-secondary text-xl' title='Data'>
+              <a className='btn btn-square text-xl' title='Data'>
                 <FaChartSimple />
               </a>
             </IconTooltip>
@@ -102,9 +102,34 @@ const Sidebar = () => {
           {/* BOTTOM — fixed */}
           <div className=' px-2'>
             <IconTooltip label='Profile'>
-            <a className='btn btn-circle btn-ghost text-xl' title='Profile'>
-              <FaUserCircle />
-            </a>
+              <div className='dropdown dropdown-top'>
+                <div
+                  tabIndex={0}
+                  role='button'
+                  className='btn btn-ghost btn-circle avatar'
+                >
+                  <div className='w-5 h-5 rounded-full'>
+                    <img
+                      alt='Tailwind CSS Navbar component'
+                      src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex='-1'
+                  className='menu menu-sm dropdown-content bg-base-100 border border-gray-600 rounded-box z-999 mt-1 w-18 p-2 shadow'
+                >
+                  <li>
+                    <a className='justify-between'>Profile</a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <a>Logout</a>
+                  </li>
+                </ul>
+              </div>
             </IconTooltip>
           </div>
         </aside>
