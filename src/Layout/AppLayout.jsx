@@ -4,21 +4,23 @@ import Sidebar from "../Header/Sidebar";
 
 const AppLayout = () => {
   return (
-    <div className="flex h-screen">
+    <div className="h-screen flex flex-col">
 
-      {/* Sidebar always visible */}
-      <Sidebar />
+      {/* TOP — always visible */}
+      <Navbar />
 
-      <div className="flex flex-col flex-1">
-        {/* Navbar always visible */}
-        <Navbar />
+      {/* BELOW NAVBAR */}
+      <div className="flex flex-1 overflow-hidden">
 
-        {/* Page content changes here */}
-        <div className="flex-1 overflow-auto">
+        {/* Sidebars */}
+        <Sidebar />
+
+        {/* Main content */}
+        <main className="flex-1 overflow-y-auto">
           <Outlet />
-        </div>
-      </div>
+        </main>
 
+      </div>
     </div>
   );
 };

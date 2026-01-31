@@ -16,7 +16,7 @@ const PublicNavbar = () => {
     <div className='navbar bg-transparent sticky  top-0 left-0 w-full z-50'>
       <div className='navbar-start'>
         <a
-          className='btn btn-ghost  hover:text-black text-neutral-50 font-brigends text-2xl '
+          className='btn btn-ghost  hover:text-black text-white font-brigends text-2xl '
           href='/'
         >
           <img src={logoIcon} alt='Dev Orbit logo icon' className='w-7 h-7' />

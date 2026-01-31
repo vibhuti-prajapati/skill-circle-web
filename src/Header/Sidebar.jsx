@@ -1,4 +1,5 @@
 import React from 'react'
+import logoIcon from '../assets/duckicon.png'
 import {
   FaHome,
   FaUsers,
@@ -21,70 +22,81 @@ import {
 import { FaChartSimple, FaHouse } from 'react-icons/fa6'
 const Sidebar = () => {
   return (
-    <div className='flex h-screen sticky top-0'>
-      <div className='flex overflow-hidden relative'>
-        <aside className='h-screen sticky top-0 flex flex-col overflow-y-auto no-scrollbar gap-2 py-6 px-2 bg-base-200'>
-          <a className='btn btn-square btn-ghost'>
-            <img alt='Logo' src='/daisy-components/logo.svg' className='w-5' />
-          </a>
+    <div className='flex h-full sticky top-0'>
+      <div className='flex  relative'>
+        <aside className='h-full sticky top-0 flex flex-col bg-base-200 w-14'>
+          {/* TOP — fixed */}
+          <div className=' px-2 '>
+            <a className='btn btn-square btn-ghost hover:bg-[#5764f0]'>
+              <img alt='Logo' src={logoIcon} className='w-5' />
+            </a>
+          </div>
 
           <div className='divider my-0'></div>
 
-          <a className='btn btn-square btn-ghost text-xl' title='Home'>
-            <FaHouse />
-          </a>
+          {/* MIDDLE — scrollable */}
+          <div className='flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 px-2 py-2 '>
+            <a
+              className='btn btn-square btn-ghost text-xl '
+            >
+              <FaHouse />
+            </a>
 
-          <a className='btn btn-square btn-secondary text-xl' title='Data'>
-            <FaChartSimple />
-          </a>
+            <a className='btn btn-square btn-secondary text-xl' title='Data'>
+              <FaChartSimple />
+            </a>
 
-          <a className='btn btn-square btn-ghost text-xl' title='Evolution'>
-            <FaChartLine />
-          </a>
+            <a className='btn btn-square btn-ghost text-xl' title='Evolution'>
+              <FaChartLine />
+            </a>
+
+            <div className='divider my-0'></div>
+
+            <a className='btn btn-square btn-ghost text-xl' title='Deliver'>
+              <FaTruck />
+            </a>
+
+            <a className='btn btn-square btn-ghost text-xl' title='Products'>
+              <FaBox />
+            </a>
+
+            <div className='divider my-0'></div>
+
+            <a className='btn btn-square btn-ghost text-xl' title='Podcast'>
+              <FaPodcast />
+            </a>
+
+            <a className='btn btn-square btn-ghost text-xl' title='Blog'>
+              <FaBlog />
+            </a>
+
+            <a className='btn btn-square btn-ghost text-xl' title='News'>
+              <FaNewspaper />
+            </a>
+
+            <div className='divider my-0'></div>
+
+            <a className='btn btn-square btn-ghost text-xl' title='GitHub'>
+              <FaGithub />
+            </a>
+
+            <a className='btn btn-square btn-ghost text-xl' title='Facebook'>
+              <FaFacebook />
+            </a>
+
+            <a className='btn btn-square btn-ghost text-xl' title='Youtube'>
+              <FaYoutube />
+            </a>
+          </div>
 
           <div className='divider my-0'></div>
 
-          <a className='btn btn-square btn-ghost text-xl' title='Deliver'>
-            <FaTruck />
-          </a>
-
-          <a className='btn btn-square btn-ghost text-xl' title='Products'>
-            <FaBox />
-          </a>
-
-          <div className='divider my-0'></div>
-
-          <a className='btn btn-square btn-ghost text-xl' title='Podcast'>
-            <FaPodcast />
-          </a>
-
-          <a className='btn btn-square btn-ghost text-xl' title='Blog'>
-            <FaBlog />
-          </a>
-
-          <a className='btn btn-square btn-ghost text-xl' title='News'>
-            <FaNewspaper />
-          </a>
-
-          <div className='divider my-0'></div>
-
-          <a className='btn btn-square btn-ghost text-xl' title='GitHub'>
-            <FaGithub />
-          </a>
-
-          <a className='btn btn-square btn-ghost text-xl' title='Facebook'>
-            <FaFacebook />
-          </a>
-
-          <a className='btn btn-square btn-ghost text-xl' title='Youtube'>
-            <FaYoutube />
-          </a>
-
-          <div className='divider my-0'></div>
-
-          <a className='btn btn-circle btn-ghost text-xl' title='Profile'>
-            <FaUserCircle />
-          </a>
+          {/* BOTTOM — fixed */}
+          <div className=' px-2'>
+            <a className='btn btn-circle btn-ghost text-xl' title='Profile'>
+              <FaUserCircle />
+            </a>
+          </div>
         </aside>
       </div>
       <aside className='bg-base-200 py-6 px-4 w-60 overflow-y-auto no-scrollbar space-y-4'>
