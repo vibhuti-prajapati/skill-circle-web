@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import hourglass from '../assets/hourglass.png'
 import astronaut from '../assets/astronaut.png'
-import stone from '../assets/stone.png'
-import crystal from '../assets/crystal.png'
 const FloatingCharacters = () => {
   const [offset, setOffset] = useState(0)
 

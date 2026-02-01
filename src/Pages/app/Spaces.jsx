@@ -1,11 +1,12 @@
 import React from 'react'
 import ConnectionRequest from '../../components/ConnectionRequest'
 
-const Channels = () => {
+const Spaces = () => {
   return (
+   <>
+   </>
    
-    <div> <ConnectionRequest/></div>
   )
 }
 
-export default Channels
+export default Spaces

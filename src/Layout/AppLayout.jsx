@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Header/Navbar";
 import Sidebar from "../Header/Sidebar";
-
+import ProfileModal from "../components/ProfileModal"
 const AppLayout = () => {
   return (
     <div data-theme="dark" className="h-screen flex flex-col">
@@ -16,12 +16,13 @@ const AppLayout = () => {
         <Sidebar />
 
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto bg-base-100">
           <Outlet />
         </main>
 
       </div>
-    </div>
+      <ProfileModal />
+    </div> 
   );
 };
 

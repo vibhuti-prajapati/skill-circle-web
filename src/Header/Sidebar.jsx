@@ -1,6 +1,8 @@
 import React from 'react'
 import logoIcon from '../assets/duckicon.png'
 import { IconTooltip } from '../components/IconTooltip'
+import { Link } from 'react-router-dom'
+
 import {
   FaHome,
   FaUsers,
@@ -36,15 +38,22 @@ const Sidebar = () => {
           {/* TOP — fixed */}
           <div className=' px-2 flex flex-col gap-2'>
             <IconTooltip label='connections'>
-              <a className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'>
+              <Link
+                to='/spaces/@me'
+                className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'
+              >
                 <img alt='Logo' src={logoIcon} className='w-5' />
-              </a>
+              </Link>
             </IconTooltip>
 
             <IconTooltip label='explore'>
-              <a className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'>
+              <Link
+                Link
+                to='/explore'
+                className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'
+              >
                 <FaRegCompass />
-              </a>
+              </Link>
             </IconTooltip>
             <IconTooltip label='Create a Space'>
               <a className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'>
@@ -58,9 +67,13 @@ const Sidebar = () => {
           {/* MIDDLE — scrollable */}
           <div className='flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 px-2 py-2 '>
             <IconTooltip label='space'>
-              <a className='btn btn-square btn-ghost text-xl'>
+              <Link
+                to='/spaces/@me'
+                className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'
+              >
+                {' '}
                 <FaServer />
-              </a>
+              </Link>
             </IconTooltip>
           </div>
 
@@ -69,8 +82,11 @@ const Sidebar = () => {
           {/* BOTTOM — fixed */}
           <div className=' px-2'>
             <IconTooltip label='Profile'>
-              <div className='dropdown dropdown-top'>
                 <div
+                  onClick={() => {
+                    console.log('modal open task given ')
+                    document.getElementById('profile_modal').showModal()
+                  }}
                   tabIndex={0}
                   role='button'
                   className='btn btn-ghost btn-circle avatar'
@@ -82,21 +98,6 @@ const Sidebar = () => {
                     />
                   </div>
                 </div>
-                <ul
-                  tabIndex='-1'
-                  className='menu menu-sm dropdown-content bg-base-100 border border-gray-600 rounded-box z-999 mt-1 w-18 p-2 shadow'
-                >
-                  <li>
-                    <a className='justify-between'>Profile</a>
-                  </li>
-                  <li>
-                    <a>Settings</a>
-                  </li>
-                  <li>
-                    <a>Logout</a>
-                  </li>
-                </ul>
-              </div>
             </IconTooltip>
           </div>
         </aside>
