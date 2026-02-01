@@ -18,86 +18,53 @@ import {
   FaGithub,
   FaFacebook,
   FaYoutube,
-  FaUser
+  FaUser,
+  FaCcDiscover,
+  FaCompass,
+  FaDraftingCompass,
+  FaPlusCircle,
+  FaRegCompass,
+  FaSpaceShuttle,
+  FaServer
 } from 'react-icons/fa'
-import { FaChartSimple, FaHouse } from 'react-icons/fa6'
+import { FaChartSimple, FaHouse, FaSpaceAwesome } from 'react-icons/fa6'
 const Sidebar = () => {
   return (
     <div className='flex h-full sticky top-0'>
       <div className='flex  relative'>
         <aside className='h-full sticky top-0 flex flex-col bg-base-200 w-14'>
           {/* TOP — fixed */}
-          <div className=' px-2 '>
+          <div className=' px-2 flex flex-col gap-2'>
             <IconTooltip label='connections'>
               <a className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'>
                 <img alt='Logo' src={logoIcon} className='w-5' />
               </a>
             </IconTooltip>
+
+            <IconTooltip label='explore'>
+              <a className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'>
+                <FaRegCompass />
+              </a>
+            </IconTooltip>
+            <IconTooltip label='Create a Space'>
+              <a className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'>
+                <FaPlusCircle />
+              </a>
+            </IconTooltip>
           </div>
 
-          <div className='divider my-0'></div>
+          <div className='divider my-0 px-2'></div>
 
           {/* MIDDLE — scrollable */}
           <div className='flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 px-2 py-2 '>
-            <IconTooltip label='Home'>
+            <IconTooltip label='space'>
               <a className='btn btn-square btn-ghost text-xl'>
-                <FaHouse />
+                <FaServer />
               </a>
             </IconTooltip>
-            <IconTooltip label='Home'>
-              <a className='btn btn-square text-xl' title='Data'>
-                <FaChartSimple />
-              </a>
-            </IconTooltip>
-            <IconTooltip label='Home'>
-              <a className='btn btn-square btn-ghost text-xl' title='Evolution'>
-                <FaChartLine />
-              </a>
-            </IconTooltip>
-            <div className='divider my-0'></div>
-            <IconTooltip label='Home'>
-              <a className='btn btn-square btn-ghost text-xl' title='Deliver'>
-                <FaTruck />
-              </a>
-            </IconTooltip>
-            <IconTooltip label='Home'>
-              <a className='btn btn-square btn-ghost text-xl' title='Products'>
-                <FaBox />
-              </a>
-            </IconTooltip>
-
-            <div className='divider my-0'></div>
-            <IconTooltip label='Home'>
-              <a className='btn btn-square btn-ghost text-xl' title='Podcast'>
-                <FaPodcast />
-              </a>
-            </IconTooltip>
-            <IconTooltip label='Home'>
-              <a className='btn btn-square btn-ghost text-xl' title='Blog'>
-                <FaBlog />
-              </a>
-            </IconTooltip>
-            <IconTooltip label='Home'>
-              <a className='btn btn-square btn-ghost text-xl' title='News'>
-                <FaNewspaper />
-              </a>
-            </IconTooltip>
-            <div className='divider my-0'></div>
-
-            <a className='btn btn-square btn-ghost text-xl' title='GitHub'>
-              <FaGithub />
-            </a>
-
-            <a className='btn btn-square btn-ghost text-xl' title='Facebook'>
-              <FaFacebook />
-            </a>
-
-            <a className='btn btn-square btn-ghost text-xl' title='Youtube'>
-              <FaYoutube />
-            </a>
           </div>
 
-          <div className='divider my-0'></div>
+          <div className='divider my-0 px-2'></div>
 
           {/* BOTTOM — fixed */}
           <div className=' px-2'>
@@ -108,7 +75,7 @@ const Sidebar = () => {
                   role='button'
                   className='btn btn-ghost btn-circle avatar'
                 >
-                  <div className='w-5 h-5 rounded-full'>
+                  <div className='w-6 h-6 rounded-full'>
                     <img
                       alt='Tailwind CSS Navbar component'
                       src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'

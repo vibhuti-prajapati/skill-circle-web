@@ -1,9 +1,12 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export default function Login () {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleLogin = async (e) => {
   e.preventDefault();
     try {
@@ -36,15 +39,25 @@ export default function Login () {
             />
           </fieldset>
 
-          <label className='fieldset text-neutral-50'>
+         <label className='fieldset text-neutral-50'>
             <span className='label'>Password</span>
-            <input
-              type='password'
-              value={password}
-              className='input validator bg-[#35353c] text-neutral-50 w-70 h-8'
-              onChange={e => setPassword(e.target.value)}
-              required
-            />
+
+            {/* password field with toggle */}
+            <div className='relative'>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className='input validator bg-[#35353c] text-neutral-50 w-70 h-8 pr-10'
+                required
+              />
+
+              <button
+                type='button'
+                onClick={() => setShowPassword(!showPassword)}
+                className='absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-100'
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
           </label>
           <div className='text-left mt-1'>
             <a
