@@ -9,7 +9,6 @@ import Spaces from '../Pages/app/Spaces'
 import Register from '../Pages/public/Register'
 import ForgotPassword from '../Pages/public/ForgotPassword'
 import ConnectionRequest from '../components/ConnectionRequest'
-
 const AppRoutes = () => (
   <Routes>
     <Route element={<PublicLayout />}>
@@ -24,6 +23,7 @@ const AppRoutes = () => (
       <Route path='/spaces/@me' element={<ConnectionRequest/>} />
       <Route path='/spaces/' element={<Spaces />} />
     </Route>
+
   </Routes>
 )
 
