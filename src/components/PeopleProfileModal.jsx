@@ -1,6 +1,6 @@
 import GithubActivity from './GithubActivity'
 
-const ProfileModal = () => (
+const PeopleProfileModal = () => (
   <dialog id='profile_modal' className='modal'>
     <div className='modal-box max-w-lg p-0 overflow-hidden'>
       {/* Close button */}
@@ -62,4 +62,4 @@ const ProfileModal = () => (
   </dialog>
 )
 
-export default ProfileModal
+export default PeopleProfileModal

@@ -1,12 +1,13 @@
 import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 import Navbar from '../Header/Navbar'
 import Sidebar from '../Header/Sidebar'
-import ProfileModal from '../components/ProfileModal'
+import PeopleProfileModal from '../components/PeopleProfileModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { BASE_URL } from '../utils/constants'
 import axios from 'axios'
 import { addUser } from '../utils/userSlice'
 import { useEffect } from 'react'
+import UserSettingsModal from '../components/UserSettingsModal'
 const AppLayout = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -45,7 +46,8 @@ const AppLayout = () => {
           <Outlet />
         </main>
       </div>
-      <ProfileModal />
+      <UserSettingsModal/>
+      <PeopleProfileModal />
     </div>
   )
 }

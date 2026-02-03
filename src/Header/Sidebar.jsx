@@ -61,7 +61,7 @@ const Sidebar = () => {
                 <div
                   onClick={() => {
                     console.log('modal open task given ')
-                    document.getElementById('profile_modal').showModal()
+                    document.getElementById('user_modal').showModal()
                   }}
                   tabIndex={0}
                   role='button'
@@ -82,106 +82,6 @@ const Sidebar = () => {
         <h1 className='font-bold text-xl'>Accounts</h1>
 
         <ul className='menu px-0'>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a>
-              <FaUser />
-
-              <div className='flex flex-col'>
-                <span className='font-bold'>User name</span>
-                <span className='text-xs'>11.2 followers</span>
-              </div>
-            </a>
-          </li>
           <li>
             <a>
               <FaUser />
