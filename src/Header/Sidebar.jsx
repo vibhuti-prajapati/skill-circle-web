@@ -3,34 +3,12 @@ import logoIcon from '../assets/duckicon.png'
 import { IconTooltip } from '../components/IconTooltip'
 import { Link } from 'react-router-dom'
 
-import {
-  FaHome,
-  FaUsers,
-  FaBell,
-  FaCog,
-  FaChartPie,
-  FaUserCircle,
-  FaLayerGroup,
-  FaChartLine,
-  FaTruck,
-  FaBox,
-  FaPodcast,
-  FaBlog,
-  FaNewspaper,
-  FaGithub,
-  FaFacebook,
-  FaYoutube,
-  FaUser,
-  FaCcDiscover,
-  FaCompass,
-  FaDraftingCompass,
-  FaPlusCircle,
-  FaRegCompass,
-  FaSpaceShuttle,
-  FaServer
-} from 'react-icons/fa'
-import { FaChartSimple, FaHouse, FaSpaceAwesome } from 'react-icons/fa6'
+import { FaUser, FaPlusCircle, FaRegCompass, FaServer } from 'react-icons/fa'
+import { useSelector } from 'react-redux'
 const Sidebar = () => {
+  const user = useSelector(store => store.user);
+  console.log(user);
+  
   return (
     <div className='flex h-full sticky top-0'>
       <div className='flex  relative'>
@@ -71,7 +49,6 @@ const Sidebar = () => {
                 to='/spaces/@me'
                 className='btn btn-square btn-ghost rounded-xl bg-[#33333b] hover:bg-[#5764f0]'
               >
-                {' '}
                 <FaServer />
               </Link>
             </IconTooltip>
@@ -80,8 +57,8 @@ const Sidebar = () => {
           <div className='divider my-0 px-2'></div>
 
           {/* BOTTOM — fixed */}
-          <div className=' px-2'>
-            <IconTooltip label='Profile'>
+            <div className=' px-2'>
+              <IconTooltip label='Profile'>
                 <div
                   onClick={() => {
                     console.log('modal open task given ')
@@ -94,12 +71,12 @@ const Sidebar = () => {
                   <div className='w-6 h-6 rounded-full'>
                     <img
                       alt='Tailwind CSS Navbar component'
-                      src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+                      src={user ? user.profileImage :'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'}
                     />
                   </div>
                 </div>
-            </IconTooltip>
-          </div>
+              </IconTooltip>
+            </div>
         </aside>
       </div>
       <aside className='bg-base-200 py-6 px-4 w-60 overflow-y-auto no-scrollbar space-y-4'>

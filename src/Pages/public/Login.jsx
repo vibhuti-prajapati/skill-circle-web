@@ -3,11 +3,15 @@ import React, { useState } from 'react'
 import {addUser} from '../../utils/userSlice.js'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 export default function Login () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleLogin = async (e) => {
   e.preventDefault();
     try {
@@ -15,12 +19,13 @@ export default function Login () {
         email: email,
         password: password
       },{withCredentials:true});
-      dispatch(addUser(res.data));
-console.log(res.data)
+      dispatch(addUser(res.data.data));
+      return navigate("/spaces/@me");
     } catch (err) {
       console.log('ERROR : ' + err)
     }
   }
+
   return (
     <div className='h-[calc(100vh-4rem)] grid place-items-center overflow-hidden'>
       <div className='grid place-items-center'>
