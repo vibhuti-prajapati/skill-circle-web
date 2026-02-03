@@ -7,7 +7,6 @@ import { FaUser, FaPlusCircle, FaRegCompass, FaServer } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 const Sidebar = () => {
   const user = useSelector(store => store.user);
-  console.log(user);
   
   return (
     <div className='flex h-full sticky top-0'>

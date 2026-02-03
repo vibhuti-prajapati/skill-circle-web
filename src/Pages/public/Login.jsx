@@ -4,6 +4,7 @@ import {addUser} from '../../utils/userSlice.js'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../utils/constants.js';
 
 export default function Login () {
   const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ export default function Login () {
   const handleLogin = async (e) => {
   e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3001/login', {
+      const res = await axios.post(BASE_URL + '/login', {
         email: email,
         password: password
       },{withCredentials:true});
