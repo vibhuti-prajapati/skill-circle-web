@@ -4,7 +4,7 @@ import AppLayout from '../Layout/AppLayout'
 import PublicLayout from '../Layout/PublicLayout'
 import Login from '../Pages/public/Login'
 import Home from '../Pages/public/Home'
-import ExploreFeed from '../components/ExploreFeed'
+import Explore from '../Pages/app/Explore'
 import Spaces from '../Pages/app/Spaces'
 import Register from '../Pages/public/Register'
 import ForgotPassword from '../Pages/public/ForgotPassword'
@@ -19,7 +19,7 @@ const AppRoutes = () => (
     </Route>
 
     <Route element={<AppLayout />}>
-      <Route path='/explore' element={<ExploreFeed />} /> 
+      <Route path='/explore' element={<Explore />} /> 
       <Route path='/spaces/@me' element={<ConnectionRequest/>} />
       <Route path='/spaces/' element={<Spaces />} />
     </Route>
