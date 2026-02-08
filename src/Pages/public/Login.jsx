@@ -21,7 +21,7 @@ export default function Login () {
         password: password
       },{withCredentials:true});
       dispatch(addUser(res.data.data));
-      return navigate("/spaces/@me");
+      return navigate("/app/spaces/@me");
     } catch (err) {
       console.log('ERROR : ' + err)
     }

@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const FeedCard = ({user}) => {
-  const profileUrl = "/profile/123";
-console.log(user);
+  const profileUrl= "/profile/123"
   return (
     <div className="card bg-base-300 max-w-sm shadow-xl overflow-hidden">
 
