@@ -47,7 +47,6 @@ const AppLayout = () => {
         </main>
       </div>
       <UserSettingsModal/>
-      <PeopleProfileModal />
     </div>
   )
 }
