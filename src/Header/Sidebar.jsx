@@ -76,7 +76,7 @@ const Sidebar = () => {
                   <img
                     alt='Tailwind CSS Navbar component'
                     src={
-                      user
+                      user?.profileImage
                         ? user.profileImage
                         : 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                     }

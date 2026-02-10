@@ -8,32 +8,35 @@ import { useState } from 'react'
 import PeopleProfileModal from './PeopleProfileModal.jsx'
 
 const Friends = () => {
-  const dispatch = useDispatch()
-  const friends = useSelector(store => store.friend)
   const [selectedUser, setSelectedUser] = useState(null)
+  const [friends, setFriends] = useState([])
 
   const getFriends = async () => {
     try {
       const res = await axios.get(BASE_URL + '/user/request/connections', {
         withCredentials: true
       })
-      dispatch(addFriend(res?.data?.data))
+      setFriends(res.data.data)
     } catch (err) {
       console.log(err)
     }
   }
 
   useEffect(() => {
-    if (!friends) {
-      getFriends()
-    }
+    getFriends()
   }, [])
 
   return (
     <>
       <div className='flex flex-wrap gap-4 justify-center'>
         {friends &&
-          friends.map(user => <FeedCard key={user._id} user={user}  onOpenProfile={setSelectedUser}/>)}
+          friends.map(user => (
+            <FeedCard
+              key={user._id}
+              user={user}
+              onOpenProfile={setSelectedUser}
+            />
+          ))}
       </div>
       <PeopleProfileModal user={selectedUser} />
     </>
