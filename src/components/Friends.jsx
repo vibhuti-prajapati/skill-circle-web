@@ -35,6 +35,7 @@ const Friends = () => {
               key={user._id}
               user={user}
               onOpenProfile={setSelectedUser}
+              showConnect={false}
             />
           ))}
       </div>

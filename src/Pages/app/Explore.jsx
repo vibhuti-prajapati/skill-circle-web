@@ -34,6 +34,7 @@ const Explore = () => {
               key={user._id}
               user={user}
               onOpenProfile={setSelectedUser}
+              showConnect={true}
             />
           ))}
       </div>

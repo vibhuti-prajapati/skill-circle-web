@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const FeedCard = ({ user , onOpenProfile}) => {
+const FeedCard = ({ user, onOpenProfile, showConnect = true  }) => {
   return (
     <div className='card bg-base-300 max-w-sm shadow-xl overflow-hidden'>
       {/* Banner */}
@@ -19,17 +19,15 @@ const FeedCard = ({ user , onOpenProfile}) => {
 
           <img
             src={
-                user.profileImage
-                  ? user.profileImage
-                  : 'https://placehold.net/avatar.svg'
-              }
-            className='w-16 h-16 rounded-full border-4 border-base-300 object-cover cursor-pointer'
-            onClick={() =>{
-              console.log("modal card opened ");
-              onOpenProfile(user);
-              document.getElementById('profile_modal')?.showModal();
+              user.profileImage
+                ? user.profileImage
+                : 'https://placehold.net/avatar.svg'
             }
-          }
+            className='w-16 h-16 rounded-full border-4 border-base-300 object-cover cursor-pointer'
+            onClick={() => {
+              onOpenProfile(user)
+              document.getElementById('profile_modal')?.showModal()
+            }}
             alt='profile'
           />
 
@@ -40,9 +38,11 @@ const FeedCard = ({ user , onOpenProfile}) => {
               <p className='opacity-70 text-xs'>user@email.com</p>
             </div>
 
-            <button className='btn bg-[#5764f0] rounded-2xl btn-sm'>
-              Connect
-            </button>
+            {showConnect && (
+              <button className='btn bg-[#5764f0] rounded-2xl btn-sm'>
+                Connect
+              </button>
+            )}
           </div>
         </div>
 
