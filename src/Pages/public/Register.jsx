@@ -21,7 +21,6 @@ const Register = () => {
         { email, name, password },
         { withCredentials: true }
       )
-      console.log(res.data)
       setSuccess(res?.data?.message)
       return navigate('/login');
     } catch (err) {
