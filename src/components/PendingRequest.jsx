@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addPendingRequest } from '../utils/pendingRequestSlice'
 import ConnectionRequest from './ConnectionRequest'
 const PendingRequest = () => {
-  const dispatch = useDispatch()
   const [pendingRequestData, setPendingRequestData] = useState([]);
   const getPendingRequests = async () => {
     try {
@@ -27,7 +26,7 @@ useEffect(() => {
     <div className='flex flex-wrap gap-4 justify-center'>
       {pendingRequestData &&
         pendingRequestData.map(request => (
-          <ConnectionRequest key={request._id} request={request}    onActionDone={getPendingRequests} />
+          <ConnectionRequest key={request._id} request={request}  onActionDone={getPendingRequests} showAccept={true} />
         ))}
     </div>
   )

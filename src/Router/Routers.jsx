@@ -10,6 +10,7 @@ import Register from '../Pages/public/Register'
 import ForgotPassword from '../Pages/public/ForgotPassword'
 import Friends from '../components/Friends'
 import PendingRequest from '../components/PendingRequest'
+import SentRequests from '../components/SentRequests'
 const AppRoutes = () => (
   <Routes>
     <Route element={<PublicLayout />}>
@@ -23,7 +24,7 @@ const AppRoutes = () => (
       <Route path='explore' element={<Explore />} /> 
       <Route path='connections' element={<Friends/>} />
        <Route path='requests-pending' element={<PendingRequest/>} /> 
-    {/*  <Route path='requests-sent' element={<SentRequests />}/> */}
+     <Route path='requests-sent' element={<SentRequests />}/>
       <Route path='spaces' element={<Spaces />} />
     </Route>
 

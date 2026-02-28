@@ -117,7 +117,7 @@ const Sidebar = () => {
                 <Link to='/app/requests-pending'>Pending Requests</Link>
               </li>
               <li>
-                <a>Sent Requests</a>
+                <Link to='/app/requests-sent'>Sent Requests</Link>
               </li>
             </ul>
 

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/constants'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
 const ConnectionRequest = ({ request, onActionDone}) => {
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
-  const dispatch = useDispatch()
   const handleReviewRequest = async status => {
     try {
       const res = await axios.patch(
@@ -38,8 +36,8 @@ const ConnectionRequest = ({ request, onActionDone}) => {
         </div>
         <img
           src={
-            request?.fromUserId?.profileImage
-              ? request?.fromUserId?.profileImage
+            request?.toUserId?.profileImage
+              ? request?.toUserId?.profileImage
               : 'https://placehold.net/avatar.svg'
           }
           alt='Hailey image'
@@ -48,23 +46,13 @@ const ConnectionRequest = ({ request, onActionDone}) => {
         <div className='grid gap-3'>
           <div className='grid gap-0.5'>
             <h2 className='text-neutral-50 text-sm font-medium leading-snug'>
-              {request?.fromUserId?.name}
-              <span className='text-gray-500'>
-                {'   '}
-                {'  '}<p>wants to connect with you</p>
-              </span>
+              {request?.toUserId?.name}
             </h2>
             <h3 className='text-gray-500 text-xs font-normal leading-4'>
               {new Date(request?.createdAt).toLocaleString()}
             </h3>
           </div>
           <div className='gap-3 flex'>
-              <button
-                className='px-5 py-2 bg-[#5764f0] rounded-xl shadow-sm text-white text-xs font-semibold leading-4'
-                onClick={() => handleReviewRequest('accepted')}
-              >
-                Accept
-              </button>
             <button
               className='px-5 py-2 bg-[#33333b] rounded-xl shadow-sm border border-[#33333b] text-neutral-50 text-xs font-semibold leading-4'
               onClick={() => handleReviewRequest('cancelled')}

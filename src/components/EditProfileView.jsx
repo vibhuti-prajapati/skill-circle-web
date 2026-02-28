@@ -7,7 +7,7 @@ import { addUser } from '../utils/userSlice.js'
 import { useNavigate } from 'react-router-dom'
 // TODO : make the api call to save everything in db
 // TODO : no api call if the data is the same as previous
-
+// TODO FIX : api call to /edit 
 const EditProfileView = ({ user }) => {
   const [form, setForm] = useState({})
   const skillsString = Array.isArray(form?.skills)
@@ -77,18 +77,6 @@ useEffect(() => {
       }
     })
     return changes
-  }
-
-  const uploadImage = async (file, type) => {
-    const formData = new FormData()
-    formData.append('image', file)
-    formData.append('type', type)
-
-    const res = await axios.patch(BASE_URL + '/profile/uploadImage', formData, {
-      withCredentials: true
-    })
-
-    return res.data.imageUrl
   }
 
   const handleSave = async () => {
