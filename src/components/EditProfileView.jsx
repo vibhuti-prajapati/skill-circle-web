@@ -7,7 +7,7 @@ import { addUser } from '../utils/userSlice.js'
 import { useNavigate } from 'react-router-dom'
 // TODO : make the api call to save everything in db
 // TODO : no api call if the data is the same as previous
-// TODO FIX : api call to /edit 
+// TODO FIX : api call to /edit
 const EditProfileView = ({ user }) => {
   const [form, setForm] = useState({})
   const skillsString = Array.isArray(form?.skills)
@@ -16,36 +16,38 @@ const EditProfileView = ({ user }) => {
 
   const [bannerPreview, setBannerPreview] = useState(null)
   const [profilePreview, setProfilePreview] = useState(null)
-
+  const [removeBanner, setRemoveBanner] = useState(false)
+  const [removeProfile, setRemoveProfile] = useState(false)
   const [bannerFile, setBannerFile] = useState(null)
   const [profileFile, setProfileFile] = useState(null)
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
-
+  const [bannerModalOpen, setBannerModalOpen] = useState(false)
+  const [profileModalOpen, setProfileModalOpen] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
     if (user) {
       setForm(user)
     }
-  }, [user]);
+  }, [user])
 
   useEffect(() => {
-  return () => {
-    if (bannerPreview) URL.revokeObjectURL(bannerPreview)
-    if (profilePreview) URL.revokeObjectURL(profilePreview)
-  }
-}, [bannerPreview, profilePreview])
+    return () => {
+      if (bannerPreview) URL.revokeObjectURL(bannerPreview)
+      if (profilePreview) URL.revokeObjectURL(profilePreview)
+    }
+  }, [bannerPreview, profilePreview])
 
-useEffect(() => {
-  if (success) {
-    const timer = setTimeout(() => {
-      navigate('/app/spaces')
-    }, 2000)
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        navigate('/app/spaces')
+      }, 2000)
 
-    return () => clearTimeout(timer)
-  }
-}, [success, navigate])
+      return () => clearTimeout(timer)
+    }
+  }, [success, navigate])
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -57,7 +59,9 @@ useEffect(() => {
     const file = e.target.files[0]
     if (file) {
       setBannerFile(file)
+      setRemoveBanner(false)
       setBannerPreview(URL.createObjectURL(file))
+      setBannerModalOpen(false)
     }
   }
   // profile preview
@@ -65,7 +69,9 @@ useEffect(() => {
     const file = e.target.files[0]
     if (file) {
       setProfileFile(file)
+      setRemoveProfile(false)
       setProfilePreview(URL.createObjectURL(file))
+      setProfileModalOpen(false)
     }
   }
   const getChangedFields = () => {
@@ -76,45 +82,63 @@ useEffect(() => {
         changes[key] = form[key]
       }
     })
+
     return changes
   }
 
   const handleSave = async () => {
     try {
       setError(null)
-      let updatedFields = getChangedFields()
+      const updatedFields = getChangedFields()
+      const formData = new FormData()
+
+      Object.keys(updatedFields).forEach(key => {
+        formData.append(key, updatedFields[key])
+      })
 
       if (bannerFile) {
-        const bannerUrl = await uploadImage(bannerFile, 'bannerImage')
-        updatedFields.bannerImage = bannerUrl
+        formData.append('bannerImage', bannerFile)
       }
       if (profileFile) {
-        const profileUrl = await uploadImage(profileFile, 'profileImage')
-        updatedFields.profileImage = profileUrl
+        formData.append('profileImage', profileFile)
       }
-      if (Object.keys(updatedFields).length === 0) {
+      if (removeBanner) {
+        formData.append('removeBannerImage', true)
+      }
+
+      if (removeProfile) {
+        formData.append('removeProfileImage', true)
+      }
+
+      if (
+        Object.keys(updatedFields).length === 0 &&
+        !bannerFile &&
+        !profileFile &&
+        !removeBanner &&
+        !removeProfile
+      ) {
         console.log('Nothing changed')
         return
       }
-      const res = await axios.patch(BASE_URL + '/profile/edit', updatedFields, {
-        withCredentials: true
+      const res = await axios.patch(BASE_URL + '/profile/edit', formData, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'multipart/form-data' }
       })
       dispatch(addUser(res.data.data))
       setSuccess('profile updated!')
-      navigate("/app/spaces")
+      navigate('/app/spaces')
     } catch (err) {
-      setError(err.response?.data?.message || err.message);
+      setError(err.response?.data?.message || err.message)
     }
   }
   return (
     <>
       {/* Banner */}
       <div className='h-32 w-full bg-base-300 relative overflow-hidden'>
-        {form?.bannerImage ? (
-          <img
-            src={bannerPreview || form?.bannerImage}
-            className='w-full h-full object-cover'
-          />
+        {bannerPreview ? (
+          <img src={bannerPreview} className='w-full h-full object-cover' />
+        ) : form?.bannerImage ? (
+          <img src={form.bannerImage} className='w-full h-full object-cover' />
         ) : (
           <div className='h-32 w-full bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500'></div>
         )}
@@ -129,8 +153,14 @@ useEffect(() => {
         />
 
         {/* Camera button */}
-        <label
+        {/*        <label
           htmlFor='bannerUpload'
+          className='absolute bottom-2 right-2 p-2 bg-black/50 rounded-full cursor-pointer hover:bg-black/70 text-white'
+        >
+          <FaCamera size={18} />
+        </label>*/}
+        <label
+          onClick={() => setBannerModalOpen(true)}
           className='absolute bottom-2 right-2 p-2 bg-black/50 rounded-full cursor-pointer hover:bg-black/70 text-white'
         >
           <FaCamera size={18} />
@@ -140,10 +170,23 @@ useEffect(() => {
       <div className='px-6 pb-6'>
         <div className='flex gap-4 mt-4 items-end'>
           <div className='relative w-24 h-24 shrink-0'>
-            <img
+            {profilePreview ? (
+              <img
+                src={profilePreview}
+                className='w-full h-full rounded-full border-4 border-base-100 object-cover'
+              />
+            ) : form?.profileImage ? (
+              <img
+                src={form.profileImage}
+                className='w-full h-full rounded-full border-4 border-base-100 object-cover'
+              />
+            ) : (
+              <div className='h-full object-cover w-full rounded-full bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500'></div>
+            )}
+            {/* <img
               src={profilePreview || form?.profileImage}
               className='w-full h-full rounded-full border-4 border-base-100 object-cover'
-            />
+            /> */}
 
             <input
               id='profileUpload'
@@ -153,11 +196,19 @@ useEffect(() => {
               className='hidden'
             />
 
-            <label
+            {/* <label
               htmlFor='profileUpload'
               className='absolute bottom-0 right-0 p-2 bg-black/50 rounded-full cursor-pointer hover:bg-black/70 text-white'
             >
               <FaCamera size={14} />
+            </label>
+             */}
+
+            <label
+              onClick={() => setProfileModalOpen(true)}
+              className='absolute bottom-2 right-2 p-2 bg-black/50 rounded-full cursor-pointer hover:bg-black/70 text-white'
+            >
+              <FaCamera size={18} />
             </label>
           </div>
         </div>
@@ -176,7 +227,12 @@ useEffect(() => {
         </div>
         <div className='mt-4'>
           <h4 className='font-semibold mb-1'>Gender</h4>
-          <select defaultValue={form?.gender || ""} className='select '>
+          <select
+            name='gender'
+            value={form?.gender || ''}
+            onChange={handleChange}
+          >
+            {' '}
             <option disabled={true}>gender</option>
             <option value={'male'}>male</option>
             <option value={'female'}>female</option>
@@ -228,6 +284,70 @@ useEffect(() => {
           </button>
         </div>
       </div>
+      {bannerModalOpen && (
+        <div className='modal modal-open'>
+          <div className='modal-box'>
+            <h3 className='font-bold text-lg mb-4'>Update Banner</h3>
+
+            <div className='flex flex-col gap-3'>
+              <label htmlFor='bannerUpload' className='btn btn-primary'>
+                Choose New Photo
+              </label>
+
+              <button
+                className='btn btn-error'
+                onClick={() => {
+                  setRemoveBanner(true)
+                  setBannerFile(null)
+                  setBannerPreview(null)
+                  setForm(prev => ({ ...prev, bannerImage: null }))
+                  setBannerModalOpen(false)
+                }}
+              >
+                Remove Current Photo
+              </button>
+
+              <button className='btn' onClick={() => setBannerModalOpen(false)}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {profileModalOpen && (
+        <div className='modal modal-open'>
+          <div className='modal-box'>
+            <h3 className='font-bold text-lg mb-4'>Update profile</h3>
+
+            <div className='flex flex-col gap-3'>
+              <label htmlFor='profileUpload' className='btn btn-primary'>
+                Choose New Photo
+              </label>
+
+              <button
+                className='btn btn-error'
+                onClick={() => {
+                  setRemoveProfile(true)
+                  setProfileFile(null)
+                  setProfilePreview(null)
+                  setForm(prev => ({ ...prev, profileImage: null }))
+                  setProfileModalOpen(false)
+                }}
+              >
+                Remove Current Photo
+              </button>
+
+              <button
+                className='btn'
+                onClick={() => setProfileModalOpen(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
